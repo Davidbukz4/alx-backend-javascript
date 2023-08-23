@@ -1,11 +1,11 @@
 const fs = require('fs');
 
-module.exports = function countStudents (pathname) {
+module.exports = function countStudents(pathname) {
   try {
     const data = fs.readFileSync(pathname, 'utf-8');
     const lines = data.split('\n');
     const students = lines.slice(1, -1);
-    const no_of_student = students.length;
+    const noOfStudent = students.length;
     const obj = {};
 
     students.forEach((students) => {
@@ -22,12 +22,12 @@ module.exports = function countStudents (pathname) {
       obj[field].firstname.push(d[0]);
     });
 
-    console.log(`Number of students in FIELD: ${no_of_student}`);
+    console.log(`Number of students in FIELD: ${noOfStudent}`);
 
     for (const [field, value] of Object.entries(obj)) {
       const firstnames = value.firstname.join(', ');
       console.log(
-        `Number of students in ${field}: ${value.count}. List: ${firstnames}`
+        `Number of students in ${field}: ${value.count}. List: ${firstnames}`,
       );
     }
   } catch (e) {

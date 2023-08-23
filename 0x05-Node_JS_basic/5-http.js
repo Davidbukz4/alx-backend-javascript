@@ -4,7 +4,7 @@ const url = require('url');
 
 const DB_FILE = process.argv.length > 2 ? process.argv[2] : '';
 
-function countStudents (pathname) {
+function countStudents(pathname) {
   const res = [];
   return new Promise((resolve, reject) => {
     fs.readFile(pathname, 'utf-8', (err, data) => {
@@ -36,7 +36,7 @@ function countStudents (pathname) {
         for (const [field, value] of Object.entries(obj)) {
           const firstnames = value.firstname.join(', ');
           console.log(
-        `Number of students in ${field}: ${value.count}. List: ${firstnames}`
+            `Number of students in ${field}: ${value.count}. List: ${firstnames}`,
           );
         }
         resolve(res.join('\n'));
